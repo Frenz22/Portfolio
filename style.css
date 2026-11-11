@@ -464,6 +464,12 @@ nav a:hover {
     font-size: 0.95rem;
 }
 
+.project-card > .project-note {
+    margin-top: -12px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -887,4 +893,211 @@ button.button {
 .project-shot a:focus-visible {
     outline: 2px solid #667eea;
     outline-offset: 3px;
+}
+
+/* HRMS screenshot carousel and viewer */
+
+.hrms-carousel {
+    width: 100%;
+    aspect-ratio: 1762 / 1080;
+}
+
+.hrms-carousel-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.hrms-carousel-image img,
+.hrms-lightbox-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hrms-carousel-image img {
+    border: 0;
+    border-radius: 0;
+}
+
+.hrms-carousel-arrow,
+.hrms-lightbox-close {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(16, 24, 32, 0.82);
+    color: #fff;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.hrms-carousel-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--display);
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.hrms-carousel-previous {
+    left: 12px;
+}
+
+.hrms-carousel-next {
+    right: 12px;
+}
+
+.hrms-carousel-arrow:hover,
+.hrms-lightbox-close:hover {
+    background: rgba(102, 126, 234, 0.95);
+}
+
+.hrms-carousel-arrow:focus-visible,
+.hrms-carousel-dot:focus-visible,
+.hrms-lightbox-close:focus-visible,
+.hrms-carousel-image:focus-visible {
+    outline: 2px solid #aeb8ff;
+    outline-offset: 3px;
+}
+
+.hrms-carousel-dots {
+    position: absolute;
+    z-index: 1;
+    bottom: 8px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    transform: translateX(-50%);
+}
+
+.hrms-carousel-dot {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.hrms-carousel-dot::before {
+    width: 9px;
+    height: 9px;
+    border-radius: 9px;
+    background: #fff;
+    content: "";
+    opacity: 0.7;
+    transition: width 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.hrms-carousel-dot[aria-current="true"]::before {
+    width: 22px;
+    background: #aeb8ff;
+    opacity: 1;
+}
+
+.hrms-lightbox {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(5, 9, 13, 0.96);
+}
+
+.hrms-lightbox[hidden] {
+    display: none;
+}
+
+.hrms-lightbox-content {
+    position: relative;
+    display: grid;
+    width: min(100%, 1500px);
+    height: min(94vh, 1000px);
+    grid-template-rows: minmax(0, 1fr) auto;
+    justify-items: center;
+    gap: 12px;
+    padding: 50px 68px 18px;
+}
+
+.hrms-lightbox-image {
+    min-height: 0;
+}
+
+.hrms-lightbox-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.hrms-lightbox-previous,
+.hrms-lightbox-next {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+}
+
+.hrms-lightbox-previous {
+    left: 8px;
+}
+
+.hrms-lightbox-next {
+    right: 8px;
+}
+
+.hrms-lightbox-dots {
+    position: static;
+    transform: none;
+}
+
+@media (max-width: 500px) {
+    .hrms-carousel-previous {
+        left: 6px;
+    }
+
+    .hrms-carousel-next {
+        right: 6px;
+    }
+
+    .hrms-lightbox {
+        padding: 10px;
+    }
+
+    .hrms-lightbox-content {
+        width: 100%;
+        height: 92vh;
+        padding: 48px 42px 12px;
+    }
+
+    .hrms-lightbox-previous {
+        left: 0;
+    }
+
+    .hrms-lightbox-next {
+        right: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hrms-carousel-dot::before {
+        transition: none;
+    }
 }
