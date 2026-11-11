@@ -16,11 +16,11 @@ A job application tracking web application built with Flask and MongoDB.
 - **Live Demo:** https://frenz-job-tracker.onrender.com/
 - **Source Code:** https://github.com/Frenz22/Job-Tracker
 
-### Real-Time Chat Application
-A real-time chat application with task tagging, built with Node.js, Express, Socket.IO, and MongoDB.
+### HRMS
+HR System is an HR management app with an employee portal and a console for HR staff and admins. It manages employee profiles and documents, departments, attendance, leave requests, salary details, attendance pay rates, and in-app notifications.
 
-- **Live Demo:** https://renz-chatapp.onrender.com/
-- **Source Code:** https://github.com/Frenz22/Renz-ChatApp
+- **Live Demo:** https://hr-system-rho-ten.vercel.app/
+- **Source Code:** https://github.com/Frenz22/Hr-system
 
 ## Contact
 
